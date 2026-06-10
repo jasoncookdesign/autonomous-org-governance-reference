@@ -1,0 +1,92 @@
+# .jasonos-config.example
+#
+# This file documents the variable namespace used throughout this repository.
+# Every {{PLACEHOLDER}} you encounter in the governance docs maps to one of
+# these variables. Populate these values when instantiating the template for
+# your own organization.
+#
+# This file is documentation only — it is not read by any script or system.
+# Replace placeholders directly in the files that reference them.
+
+# ── Identity ──────────────────────────────────────────────────────────────────
+
+# The CEO's personal email address. Used as the authoritative inbound channel
+# — all organizational reports and escalations are sent here.
+CEO_EMAIL=you@example.com
+
+# The operator/sandbox email address. This is the account the AI organization
+# uses for sending outbound communications (reports, escalations) to the CEO,
+# and for authenticated service connections (Gmail MCP, Google Drive, etc.).
+# In a solo-operator setup this is typically a second Google account.
+OPERATOR_EMAIL=operator@example.com
+
+# ── GitHub ────────────────────────────────────────────────────────────────────
+
+# The GitHub username that owns the canonical governance repository.
+# This account holds the authoritative copy of the governance repo.
+CANONICAL_GITHUB_USER=your-github-username
+
+# The GitHub username used for the fork (if operating a fork/PR model).
+# In a direct-to-main relay model (see INI-030), this fork is kept in sync
+# but PRs are not required. Set to the same as CANONICAL_GITHUB_USER if
+# you are not using a fork model.
+FORK_GITHUB_USER=your-fork-username
+
+# The name of the governance repository (without owner prefix).
+REPO_NAME=digital-organization-governance
+
+# ── Infrastructure ────────────────────────────────────────────────────────────
+
+# The root path of the SandboxData volume — the shared filesystem between
+# the sandbox AI environment and the physical host (Mac mini or equivalent).
+# This volume holds live logs, bin/ scripts, the Airlock, and the knowledge vault.
+# Example (macOS external volume): /Volumes/SandboxData
+SANDBOX_DATA_ROOT=/Volumes/YourVolumeName
+
+# The macOS system username on the physical host machine.
+# Used in file paths (/Users/{{SYSTEM_USER}}/...) and SSH connection strings.
+SYSTEM_USER=your-mac-username
+
+# The local hostname or mDNS address of the physical host (Mac mini or equivalent).
+# Used for SSH access to the host from another machine on the same network.
+# Example: mac-mini.local
+MAC_MINI_HOSTNAME=your-mac-hostname.local
+
+# ── SSH ───────────────────────────────────────────────────────────────────────
+
+# The filename (not full path) of the SSH key used by the git relay.
+# This key is stored at ~/.ssh/{{SSH_KEY_NAME}} on the physical host and
+# must be registered as a deploy key on the GitHub governance repository
+# with write access.
+# Example: jasonos_relay_ed25519
+SSH_KEY_NAME=your_relay_key_name
+
+# ── Finance ───────────────────────────────────────────────────────────────────
+
+# Per-transaction spending limit for director wallets.
+# Set at wallet provisioning time. Example: $25.00
+WALLET_TRANSACTION_LIMIT=
+
+# Monthly spending cap for director wallets.
+# Set at wallet provisioning time. Example: $100.00
+WALLET_MONTHLY_LIMIT=
+
+# ── Google Drive ──────────────────────────────────────────────────────────────
+# Folder IDs for the organizational Google Drive structure.
+# Obtain these from your Drive URL: drive.google.com/drive/folders/<ID>
+
+# The root backup folder in Google Drive (e.g. Backup/).
+DRIVE_BACKUP_ROOT_FOLDER_ID=
+
+# The projects subfolder used by Engineering, Knowledge, and Operations
+# Directors for syncing agent definitions, KB vault, and operational logs.
+DRIVE_PROJECTS_FOLDER_ID=
+
+# The scheduled task prompts backup folder.
+DRIVE_SCHEDULED_FOLDER_ID=
+
+# The Airlock folder — the approved inbound channel for CEO-to-org file delivery.
+DRIVE_AIRLOCK_FOLDER_ID=
+
+# The local network IP address of the Mac mini (set via DHCP reservation on router).
+MAC_MINI_LOCAL_IP=192.168.x.x

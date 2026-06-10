@@ -1,6 +1,6 @@
 # autonomous-org-governance-reference
 
-A real-world instantiation of the [`autonomous-org-governance`](https://github.com/{{CANONICAL_GITHUB_USER}}/autonomous-org-governance) template — a policy-governed, AI-operated organizational system built on top of Claude.
+A real-world instantiation of the [`autonomous-org-governance`](https://github.com/jasoncookdesign/autonomous-org-governance) template — a policy-governed, AI-operated organizational system built on top of Claude.
 
 This reference implementation is published for transparency and community reference. All private values (hostnames, email addresses, user identifiers, file paths, SSH key names) have been replaced with `{{PLACEHOLDER}}` tokens defined in the template.
 
@@ -39,7 +39,7 @@ autonomous-org-governance-reference/
 
 ## How to Use This Reference
 
-This repository is a companion to [`autonomous-org-governance`](https://github.com/{{CANONICAL_GITHUB_USER}}/autonomous-org-governance). Use it to:
+This repository is a companion to [`autonomous-org-governance`](https://github.com/jasoncookdesign/autonomous-org-governance). Use it to:
 
 1. **See how the template is applied** — each governance artifact here corresponds to a template in the source repo
 2. **Understand operational patterns** — how initiatives are tracked, how proposals work, how audit trails are maintained
